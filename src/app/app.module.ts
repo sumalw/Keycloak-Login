@@ -9,7 +9,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, DashboardComponent, NavbarComponent],
+  declarations: [
+    AppComponent,
+    WelcomeComponent,
+    DashboardComponent,
+    NavbarComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

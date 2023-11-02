@@ -14,7 +14,6 @@ export class AuthService {
   constructor(private oauthService: OAuthService, private router: Router) {
     this.oauthService.configure(authConfig);
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
-    // this.oauthService.loadDiscoveryDocumentAndTryLogin();
     this.oauthService.loadDiscoveryDocumentAndTryLogin().then(() => {
       if (
         this.oauthService.hasValidIdToken() &&
