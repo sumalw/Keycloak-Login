@@ -13,6 +13,7 @@ export class AuthService {
 
   constructor(private oauthService: OAuthService, private router: Router) {
     this.oauthService.configure(authConfig);
+    this.oauthService.setStorage(localStorage);
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
     this.oauthService.loadDiscoveryDocumentAndTryLogin().then(() => {
       if (
@@ -30,7 +31,7 @@ export class AuthService {
 
   logout() {
     this.user.next(null!);
-    this.router.navigate(['/welcome']);
+    // this.router.navigate(['/welcome']);
     localStorage.removeItem('userData');
     this.oauthService.logOut();
   }
