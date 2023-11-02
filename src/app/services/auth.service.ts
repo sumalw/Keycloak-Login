@@ -64,7 +64,9 @@ export class AuthService {
 
   getLoggedInUsername() {
     const userClaims: any = this.oauthService.getIdentityClaims();
-    return userClaims.name ? userClaims.name : '';
+    if (userClaims) {
+      return userClaims.name ? userClaims.name : '';
+    }
   }
 
   getClaimInfo() {
