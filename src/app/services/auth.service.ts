@@ -20,7 +20,7 @@ export class AuthService {
         this.oauthService.hasValidIdToken() &&
         this.oauthService.hasValidAccessToken()
       ) {
-        this.isAuthenticated();
+        this.setAuthenticatedData();
       }
     });
   }
@@ -36,7 +36,7 @@ export class AuthService {
     this.oauthService.logOut();
   }
 
-  isAuthenticated(): boolean {
+  setAuthenticatedData() {
     if (
       this.oauthService.hasValidIdToken() &&
       this.oauthService.hasValidAccessToken()
@@ -53,11 +53,6 @@ export class AuthService {
       this.user.next(user);
       localStorage.setItem('userData', JSON.stringify(user));
     }
-
-    return (
-      this.oauthService.hasValidIdToken() &&
-      this.oauthService.hasValidAccessToken()
-    );
   }
 
   getAccessToken() {
