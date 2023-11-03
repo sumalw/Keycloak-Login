@@ -47,7 +47,10 @@ export class AuthService {
         userClaims.email,
         userClaims.family_name,
         userClaims.given_name,
-        userClaims.name
+        userClaims.name,
+        this.oauthService.getAccessToken(),
+        this.oauthService.getIdToken(),
+        this.oauthService.getAccessTokenExpiration()
       );
 
       this.user.next(user);
