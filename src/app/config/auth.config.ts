@@ -6,4 +6,5 @@ export const authConfig: AuthConfig = {
   clientId: 'sso-auth',
   scope: 'openid profile email offline_access',
   responseType: 'code',
+  postLogoutRedirectUri: 'http://localhost:4200/login',
 };
